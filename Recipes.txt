@@ -4,6 +4,7 @@ Kheer
 Pasta
 Chiken Fry
 
-
+Beans
+Pizza
 
 Thank you
