@@ -1,0 +1,62 @@
+Task details
+
+Remove k digits from a number to make the number smallest. Note you are given a string
+
+Input: k: 1, str: 10200
+Output: 200
+Explantion: We have to remove one letter from the string so the number become smallest . So the output after removing will be 200.
+
+Input: k: 2, str: 54321
+Output: 321
+Explantion: We have to remove two letter from the string so the number become smallest . So the output after removing will be 321.
+
+Input: k: 2, str: 100200
+Output: 0
+Explantion: When removing one letter from the string become 200. So the output after removing 2 becomes 0.
+
+solution:
+
+const k=1;
+var str="10200";
+let count=1;
+while(count<=k)
+{
+  //delete 1 element from left and store in stack
+  
+  let stack = [];
+  let top=-1;
+  for(let i = str.length-1; i>0;i--)
+  {
+    top=top+1;
+    stack[top] = str[i];
+  }
+  //console.log(stack, str);
+
+  //pop all zero of left in any number
+  while(stack[top]==0)
+  {
+    stack.pop();
+    top=top-1;
+  }
+  ///console.log(stack);
+  
+  //after delete all zero of left pop all ement in string;
+  let s = "";
+  if(stack.length==0)
+  {
+    s=0;
+  }
+  else
+  {
+    
+    while(stack.length>0)
+    {
+      s= s + stack.pop();
+    }
+  }
+  //console.log(s);
+  count++;
+  str = s;
+  
+}
+console.log(str);
